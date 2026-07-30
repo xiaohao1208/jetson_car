@@ -1,0 +1,2 @@
+# xacro 小车描述文件路径，可以使用包内相对路径或绝对路径
+model: urdf/car.urdf.xacro

@@ -1,0 +1,292 @@
+* {
+  /* 所有控件统一使用 border-box，避免窄屏溢出 */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  background: #eef2f7;
+  color: #111827;
+}
+
+.app-shell {
+  /* 桌面使用控制、地图、状态三栏布局 */
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(360px, 1fr) minmax(260px, 340px);
+  gap: 12px;
+  min-height: 100vh;
+  padding: 12px;
+}
+
+.control-surface,
+.map-surface,
+.status-surface {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.top-bar,
+.action-row,
+.tool-panel,
+.tool-row,
+.map-status-row,
+.speed-panel {
+  display: grid;
+  gap: 8px;
+}
+
+.top-bar {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.state-pill {
+  min-width: 76px;
+  border: 1px solid #9ca3af;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: #f9fafb;
+  text-align: center;
+  font-size: 13px;
+}
+
+.state-pill.is-online {
+  border-color: #059669;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.speed-panel {
+  margin-bottom: 12px;
+}
+
+.speed-control {
+  display: grid;
+  grid-template-columns: 64px 44px minmax(96px, 1fr) 44px;
+  gap: 8px;
+  align-items: center;
+}
+
+.speed-control span {
+  color: #374151;
+  font-size: 14px;
+}
+
+.speed-control output {
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+}
+
+.drive-pad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(72px, 1fr));
+  grid-template-rows: repeat(3, 76px);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.drive-button.up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.drive-button.left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.drive-button.right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.drive-button.down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.action-row,
+.tool-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tool-panel {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tool-heading {
+  color: #374151;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nav-mode-control {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+}
+
+.nav-mode-control button {
+  min-width: 0;
+  border: 0;
+  border-right: 1px solid #9ca3af;
+  border-radius: 0;
+  background: #f9fafb;
+  color: #374151;
+  padding: 8px 4px;
+  font-size: 13px;
+}
+
+.nav-mode-control button:last-child {
+  border-right: 0;
+}
+
+.nav-mode-control button.is-unavailable {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: help;
+}
+
+.nav-mode-control button.is-active {
+  background: #2563eb;
+  color: #ffffff;
+  transform: none;
+}
+
+.map-status-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#map-message {
+  min-height: 36px;
+  display: grid;
+  align-items: center;
+  overflow-wrap: anywhere;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  background: #f9fafb;
+  font-size: 14px;
+}
+
+.pose-readout {
+  min-height: 34px;
+  display: grid;
+  align-items: center;
+  overflow-wrap: anywhere;
+  margin-bottom: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 10px;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+}
+
+button {
+  min-height: 44px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  touch-action: none;
+  user-select: none;
+}
+
+.speed-control button {
+  min-width: 44px;
+  padding: 8px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+button.danger {
+  border-color: #dc2626;
+  background: #dc2626;
+}
+
+button.is-active {
+  border-color: #111827;
+  background: #111827;
+  transform: translateY(1px);
+}
+
+button:disabled {
+  border-color: #9ca3af;
+  background: #9ca3af;
+  color: #f9fafb;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#map-canvas {
+  width: 100%;
+  max-height: calc(100vh - 104px);
+  aspect-ratio: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #e5e7eb;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 12px;
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+
+dt {
+  color: #374151;
+  font-weight: bold;
+}
+
+dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+@media (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  #map-canvas {
+    max-height: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 8px;
+  }
+
+}

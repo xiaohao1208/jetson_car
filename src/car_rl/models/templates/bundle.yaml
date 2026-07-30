@@ -1,0 +1,7 @@
+# 模型包清单格式版本，controller-only契约固定为2
+schema_version: 2
+# 控制器模型发布版本
+bundle_version: "REPLACE_WITH_VERSION"
+# 相对模型包根目录的控制器元数据路径
+controller_metadata: controller/metadata.yaml
+# 模型包还必须包含controller/evaluation.json和根目录environment-lock.json

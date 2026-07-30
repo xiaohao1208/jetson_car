@@ -1,0 +1,18 @@
+# 导航模式唯一定义，启动文件和网页后台共同读取
+classic:
+  # 网页和日志使用的中文名称
+  label: 经典导航
+  # Nav2 局部控制器插件
+  controller: dwb_core::DWBLocalPlanner
+  # 控制器短时无有效速度时允许继续等待的秒数
+  failure_tolerance: 1.0
+  # 经典模式不需要强化学习模型
+  requires_controller_engine: false
+
+rl_controller:
+  # 保留NavFn全局规划，只替换局部控制器
+  label: 强化学习控制
+  controller: car_rl::Controller
+  failure_tolerance: 0.0
+  # 该模式只要求控制器引擎
+  requires_controller_engine: true

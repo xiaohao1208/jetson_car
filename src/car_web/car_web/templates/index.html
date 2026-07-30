@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!-- 手机 Web 控制台只依赖本地静态资源，适合热点离线环境使用 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ROS2 Car</title>
+    <link rel="stylesheet" href="/static/style.css?v=20260729-7">
+  </head>
+  <body>
+    <main class="app-shell">
+      <!-- 左侧控制面板，包含速度档位、方向键和急停 -->
+      <section class="control-surface">
+        <div class="top-bar">
+          <h1>ROS2 Car</h1>
+          <div id="connection-state" class="state-pill">离线</div>
+        </div>
+
+        <div class="speed-panel">
+          <!-- 速度档位只影响接下来方向键发送的目标速度 -->
+          <div class="speed-control">
+            <span>线速度</span>
+            <button data-speed-kind="linear" data-speed-delta="-5">-</button>
+            <output id="linear-speed-value">10 cm/s</output>
+            <button data-speed-kind="linear" data-speed-delta="5">+</button>
+          </div>
+          <div class="speed-control">
+            <span>角速度</span>
+            <button data-speed-kind="angular" data-speed-delta="-15">-</button>
+            <output id="angular-speed-value">60 °/s</output>
+            <button data-speed-kind="angular" data-speed-delta="15">+</button>
+          </div>
+        </div>
+
+        <div class="drive-pad">
+          <!-- 方向键使用 data-drive 绑定速度方向 -->
+          <button class="drive-button up" data-drive="forward">↑</button>
+          <button class="drive-button left" data-drive="left">←</button>
+          <button class="drive-button right" data-drive="right">→</button>
+          <button class="drive-button down" data-drive="reverse">↓</button>
+        </div>
+
+        <div class="action-row">
+          <button id="estop" class="danger">急停</button>
+          <button id="release">解除急停</button>
+        </div>
+      </section>
+
+      <section class="map-surface">
+        <!-- 中间地图面板，建图、导航、当前位置和目标点都在这里完成 -->
+        <div class="tool-panel">
+          <div class="tool-heading">建图</div>
+          <div class="tool-row">
+            <button id="start-mapping" data-busy-label="正在启动建图">开始建图</button>
+            <button id="stop-mapping" data-busy-label="正在保存地图">结束建图</button>
+          </div>
+
+          <div class="tool-heading">导航</div>
+          <div class="nav-mode-control" aria-label="导航模式">
+            <button class="is-active" data-nav-mode="classic">经典</button>
+            <button data-nav-mode="rl_controller">RL控制</button>
+          </div>
+          <div class="tool-row">
+            <button id="start-navigation" data-busy-label="正在启动导航">导航</button>
+            <button id="cancel-nav" data-busy-label="正在结束导航">结束导航</button>
+          </div>
+          <div class="tool-row">
+            <button data-map-action="pose">设置当前位置</button>
+            <button data-map-action="goal">设置目标点</button>
+          </div>
+          <div class="tool-row">
+            <button id="start-goal-navigation" data-busy-label="正在开始导航">开始导航</button>
+            <button id="remove-last-goal" data-busy-label="正在清除目标">清除最后目标点</button>
+          </div>
+        </div>
+        <div class="map-status-row">
+          <div id="map-status" class="state-pill">等待地图数据</div>
+          <button id="clear-goals" data-busy-label="正在清空目标">清空所有目标点</button>
+        </div>
+        <div id="map-message">等待建图或导航</div>
+        <div id="robot-pose" class="pose-readout">位置: -</div>
+        <!-- canvas 像素固定为正方形，CSS 再按屏幕尺寸缩放 -->
+        <canvas id="map-canvas" width="720" height="720"></canvas>
+      </section>
+
+      <section class="status-surface">
+        <!-- 右侧状态表由状态接口轮询生成 -->
+        <h2>状态</h2>
+        <dl id="status-list"></dl>
+      </section>
+    </main>
+    <script src="/static/app.js?v=20260729-7"></script>
+  </body>
+</html>

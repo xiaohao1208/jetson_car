@@ -1,0 +1,43 @@
+ydlidar_node:
+  ros__parameters:
+    # ydlidar_node 打开的本地串口，由 car_bringup laser_tcp_server 创建并桥接到雷达板 TCP
+    port: /tmp/tty_laser
+    # frame_id 必须和 car_description 中的 laser_link 一致
+    frame_id: laser_link
+    # 需要屏蔽的角度区间，空字符串表示不屏蔽
+    ignore_array: ""
+    # 雷达板配置中的 laser_baud 也必须是 115200
+    baudrate: 115200
+    # lidar_type/device_type/sample_rate 与当前 YDLIDAR 型号匹配，保持和书上流程一致
+    lidar_type: 1
+    device_type: 0
+    sample_rate: 3
+    # 强度数据使用的有效位数
+    intensity_bit: 8
+    # 异常检查次数过低会误判 WiFi 抖动，过高会延迟故障恢复
+    abnormal_check_count: 4
+    # true 表示每帧保持固定角度分辨率
+    fixed_resolution: true
+    # true 表示反转扫描数据顺序以匹配安装方向
+    reversion: true
+    # true 表示将扫描角度取反以匹配 ROS 坐标方向
+    inverted: true
+    # 雷达串口异常断开后自动尝试重连
+    auto_reconnect: true
+    # 当前雷达经 WiFi 转串口接入，按单通道串口雷达处理
+    isSingleChannel: true
+    # true 表示发布雷达反射强度数组
+    intensity: true
+    # true 表示允许通过串口 DTR 控制雷达电机
+    support_motor_dtr: true
+    # 全角度扫描，单位为度
+    angle_max: 180.0
+    angle_min: -180.0
+    # 驱动发布的最大有效距离，单位米
+    range_max: 64.0
+    # 驱动发布的最小有效距离，单位米
+    range_min: 0.1
+    # 5Hz 与日志中的 Scan Frequency 匹配，降低 WiFi 串口链路压力
+    frequency: 5.0
+    # false 表示无效距离保留为驱动默认值而不是正无穷
+    invalid_range_is_inf: false

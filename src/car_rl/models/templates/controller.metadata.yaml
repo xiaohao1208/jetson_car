@@ -1,0 +1,22 @@
+# 单模型元数据格式版本，controller-only契约固定为2
+schema_version: 2
+# 模型角色必须为 controller
+role: controller
+# 训练工程生成的可追踪模型版本
+model_version: "REPLACE_WITH_VERSION"
+# 相对当前元数据文件的 ONNX 路径
+model_file: model.onnx
+# 当前部署契约固定使用 ONNX opset 18
+onnx_opset: 18
+# model.onnx 文件的64字符小写 SHA256
+onnx_sha256: "REPLACE_WITH_64_CHARACTER_SHA256"
+# 允许的单次推理最长时间，单位毫秒
+max_inference_ms: 10.0
+# 控制器输入固定为一批86维 float32 观测
+input:
+  name: observation
+  shape: [1, 86]
+# 控制器输出固定为归一化线速度和角速度动作
+output:
+  name: action
+  shape: [1, 2]

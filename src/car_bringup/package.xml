@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>car_bringup</name>
+  <version>0.1.0</version>
+  <description>小车热点、Agent、底盘、雷达与Web统一启动包</description>
+  <maintainer email="hao@qq.com">hao</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>car_interfaces</depend>
+  <depend>nav_msgs</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_ros</depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>car_base</exec_depend>
+  <exec_depend>car_description</exec_depend>
+  <exec_depend>car_move</exec_depend>
+  <exec_depend>car_web</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>micro_ros_agent</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>ydlidar</exec_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

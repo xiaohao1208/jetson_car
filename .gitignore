@@ -1,0 +1,57 @@
+# ROS 2 / colcon 构建产物
+/build/
+/install/
+/log/
+
+# 本机编辑器和索引
+/.vscode/
+/.idea/
+*.code-workspace
+compile_commands.json
+.clangd/
+.cache/
+
+# Python 缓存、测试和覆盖率
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# CMake 临时文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# ROS 运行和录包产物
+rosbag2_*/
+*.db3
+*.mcap
+*.pid
+*.log
+
+# 地图是现场运行数据，仅保留目录
+/maps/*
+!/maps/.gitkeep
+
+# RL 模型、TensorRT 缓存和传输包
+/src/car_rl/models/active/*
+!/src/car_rl/models/active/README.md
+*.engine
+*.plan
+*.onnx
+*.zip
+*.sha256
+
+# 操作系统和临时文件
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
