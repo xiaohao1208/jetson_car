@@ -13,26 +13,15 @@ JETSON_CAR_ROOT="$(
   pwd
 )"
 
-JETSON_CAR_RUNTIME_DIR="${
-  JETSON_CAR_RUNTIME_DIR:-/tmp/jetson-car-$(id -u)
-}"
+JETSON_CAR_RUNTIME_DIR="${JETSON_CAR_RUNTIME_DIR:-/tmp/jetson-car-$(id -u)}"
 
-JETSON_CAR_STATE_FILE="${
-  JETSON_CAR_RUNTIME_DIR
-}/robot_bringup.state"
+JETSON_CAR_STATE_FILE="${JETSON_CAR_RUNTIME_DIR}/robot_bringup.state"
 
-JETSON_CAR_LOCK_FILE="${
-  JETSON_CAR_RUNTIME_DIR
-}/robot_bringup.lock"
+JETSON_CAR_LOCK_FILE="${JETSON_CAR_RUNTIME_DIR}/robot_bringup.lock"
 
-JETSON_CAR_LOG_FILE="${
-  JETSON_CAR_LOG_FILE:-${JETSON_CAR_ROOT}/log/robot_bringup.log
-}"
+JETSON_CAR_LOG_FILE="${JETSON_CAR_LOG_FILE:-${JETSON_CAR_ROOT}/log/robot_bringup.log}"
 
-JETSON_CAR_HOTSPOT_CONFIG="${
-  JETSON_CAR_HOTSPOT_CONFIG:-
-  ${JETSON_CAR_ROOT}/src/car_bringup/config/bringup.yaml
-}"
+JETSON_CAR_HOTSPOT_CONFIG="${JETSON_CAR_HOTSPOT_CONFIG:-${JETSON_CAR_ROOT}/src/car_bringup/config/bringup.yaml}"
 
 JETSON_CAR_PID=""
 JETSON_CAR_START_TIME=""
@@ -268,9 +257,7 @@ jetson_car_hotspot_active()
 
   connection="$(jetson_car_hotspot_connection)" || return 2
 
-  nmcli_bin="${
-    JETSON_CAR_NMCLI_BIN:-$(command -v nmcli || true)
-  }"
+  nmcli_bin="${JETSON_CAR_NMCLI_BIN:-$(command -v nmcli || true)}"
 
   if [[ -z "${nmcli_bin}" || ! -x "${nmcli_bin}" ]]
   then
@@ -383,9 +370,7 @@ jetson_car_start_locked()
 
   jetson_car_prepare_environment || return 1
 
-  ros2_bin="${
-    JETSON_CAR_ROS2_BIN:-$(command -v ros2 || true)
-  }"
+  ros2_bin="${JETSON_CAR_ROS2_BIN:-$(command -v ros2 || true)}"
 
   if [[ -z "${ros2_bin}" || ! -x "${ros2_bin}" ]]
   then
