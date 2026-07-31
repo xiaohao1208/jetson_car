@@ -55,3 +55,10 @@ Thumbs.db
 *~
 *.swp
 *.swo
+
+# 启动脚本
+/scripts/*
+!/scripts/.jetson_car_control.sh
+!/scripts/restart_jetson_car.sh
+!/scripts/start_jetson_car.sh
+!/scripts/stop_jetson_car.sh

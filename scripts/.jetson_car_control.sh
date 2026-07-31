@@ -148,6 +148,96 @@ jetson_car_hotspot_connection()
   printf '%s\n' "${connection}"
 }
 
+jetson_car_hotspot_active()
+{
+  local connection
+  local nmcli_bin
+  local connection_mode
+  local active_connections
+
+  connection="$(jetson_car_hotspot_connection)" || return 2
+
+  nmcli_bin="${JETSON_CAR_NMCLI_BIN:-$(command -v nmcli || true)}"
+  if [[ -z "${nmcli_bin}" || ! -x "${nmcli_bin}" ]]
+  then
+    echo "未找到可执行的nmcli命令" >&2
+    return 2
+  fi
+
+  # 检查该连接配置是否确实为AP热点模式
+  connection_mode="$(
+    LC_ALL=C "${nmcli_bin}" \
+      -g 802-11-wireless.mode \
+      connection show id "${connection}" 2>/dev/null || true
+  )"
+
+  if [[ -z "${connection_mode}" ]]
+  then
+    echo "未找到热点连接配置：${connection}" >&2
+    return 2
+  fi
+
+  if [[ "${connection_mode}" != "ap" ]]
+  then
+    echo "连接${connection}不是AP热点模式，mode=${connection_mode}" >&2
+    return 2
+  fi
+
+  # --escape no 避免连接名称中的冒号被转义
+  active_connections="$(
+    LC_ALL=C "${nmcli_bin}" \
+      -t --escape no -f NAME \
+      connection show --active
+  )" || {
+    echo "读取NetworkManager活动连接失败" >&2
+    return 2
+  }
+
+  grep -Fxq "${connection}" <<< "${active_connections}"
+}
+
+jetson_car_ensure_hotspot()
+{
+  local connection
+  local nmcli_bin
+  local check_result
+
+  if jetson_car_hotspot_active
+  then
+    connection="$(jetson_car_hotspot_connection)" || return 1
+    echo "小车热点已经开启，连接=${connection}"
+    return 0
+  else
+    check_result="$?"
+  fi
+
+  # 返回2说明不是简单的“热点未启动”，而是配置或命令错误
+  if [[ "${check_result}" -eq 2 ]]
+  then
+    return 1
+  fi
+
+  connection="$(jetson_car_hotspot_connection)" || return 1
+  nmcli_bin="${JETSON_CAR_NMCLI_BIN:-$(command -v nmcli || true)}"
+
+  echo "正在启动小车热点，连接=${connection}"
+
+  if ! LC_ALL=C "${nmcli_bin}" --wait 15 \
+    connection up id "${connection}" >/dev/null
+  then
+    echo "小车热点启动失败，连接=${connection}" >&2
+    return 1
+  fi
+
+  if ! jetson_car_hotspot_active
+  then
+    echo "NetworkManager已执行连接启动，但热点状态检测失败" >&2
+    return 1
+  fi
+
+  echo "小车热点启动完成，连接=${connection}"
+}
+
 jetson_car_stop_hotspot()
 {
   local connection
@@ -186,13 +276,20 @@ jetson_car_start_locked()
   local pid
   local start_time
   local process_group
+
+  # 每次执行启动命令时都检查热点。
+  # 即使ROS 2进程已经运行，热点被意外关闭后也可以重新启动。
+  jetson_car_ensure_hotspot || return 1
+
   if jetson_car_load_state && jetson_car_process_alive
   then
     echo "Jetson小车已经启动，PID=${JETSON_CAR_PID}"
     return 0
   fi
+
   rm -f "${JETSON_CAR_STATE_FILE}"
   jetson_car_prepare_environment || return 1
+
   ros2_bin="${JETSON_CAR_ROS2_BIN:-$(command -v ros2 || true)}"
   if [[ -z "${ros2_bin}" || ! -x "${ros2_bin}" ]]
   then
