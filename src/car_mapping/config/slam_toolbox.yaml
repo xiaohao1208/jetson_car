@@ -1,0 +1,37 @@
+slam_toolbox:
+  ros__parameters:
+    # false 表示使用 Jetson 系统时钟
+    use_sim_time: false
+    # 里程计坐标系，由 car_base 发布
+    odom_frame: odom
+    # 建图生成的全局坐标系
+    map_frame: map
+    # slam_toolbox 跟踪的底盘坐标系
+    base_frame: base_footprint
+    # 经 car_mapping 固定扫描长度后的雷达话题
+    scan_topic: /mapping_scan
+    # mapping 表示创建和更新地图
+    mode: mapping
+    # WiFi 雷达存在短时抖动，适当扩大队列和 TF 缓冲
+    # 消息过滤器最多缓存的扫描帧数
+    scan_queue_size: 30
+    # 单次等待坐标变换的最长秒数
+    transform_timeout: 0.5
+    # TF 历史缓存时长，单位秒
+    tf_buffer_duration: 30.0
+    # 两次处理扫描之间的最小秒数
+    minimum_time_interval: 0.05
+    # 触发地图更新的最小平移距离，单位米
+    minimum_travel_distance: 0.02
+    # 触发地图更新的最小偏航变化，单位弧度
+    minimum_travel_heading: 0.05
+    # 栅格地图分辨率，单位米每格
+    resolution: 0.05
+    # 参与建图的雷达最小距离，单位米
+    min_laser_range: 0.1
+    # 参与建图的雷达最大距离，单位米
+    max_laser_range: 12.0
+    # true 表示使用相邻扫描匹配修正里程计误差
+    use_scan_matching: true
+    # true 表示使用扫描重心辅助匹配
+    use_scan_barycenter: true

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<library path="car_rl_plugins">
+  <class
+    name="car_rl::Controller"
+    type="car_rl::Controller"
+    base_class_type="nav2_core::Controller">
+    <description>TensorRT强化学习局部控制器</description>
+  </class>
+</library>

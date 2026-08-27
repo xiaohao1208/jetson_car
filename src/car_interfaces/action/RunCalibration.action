@@ -1,0 +1,22 @@
+# 操作者必须显式确认四项安全条件
+bool straight_path_clear
+bool rotation_area_clear
+bool physical_estop_ready
+bool supervised
+---
+# 终态结果
+bool success
+string outcome
+string run_id
+string result_directory
+string calibration_yaml
+string calibration_csv
+string message
+---
+# 长任务进度
+string state
+string phase
+uint32 completed_trials
+uint32 total_trials
+float32 progress
+string message

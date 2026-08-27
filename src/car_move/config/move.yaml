@@ -1,0 +1,38 @@
+car_move:
+  ros__parameters:
+    # 两类输入都必须持续刷新，来源断开后自动停车
+    # 手动速度命令的最大允许间隔，单位秒
+    manual_cmd_timeout_sec: 0.75
+    # 标定节点以20Hz刷新；过期时保持闭锁为零，不回退到其它命令来源
+    calibration_cmd_timeout_sec: 0.25
+    # 观测状态每0.5秒刷新，超过1.5秒后保持闭锁为零
+    observation_status_timeout_sec: 1.5
+    # 导航速度命令的最大允许间隔，单位秒
+    nav_cmd_timeout_sec: 0.75
+    # ESP32 状态过期时拒绝所有运动
+    # MCU 状态最大允许年龄，单位秒
+    # 运动安全心跳必须早于 ESP32 本地 0.75 秒命令超时失效。
+    mcu_status_timeout_sec: 0.5
+    # 向 ESP32 发布最终运动命令的频率，单位赫兹
+    move_cmd_publish_hz: 15.0
+    # Jetson 与 ESP32 各保留一层速度/近障限制
+    # 允许的最大线速度绝对值，单位米每秒
+    max_linear_speed: 0.4
+    # 线速度不大于该值时视为原地转向；行进时允许Nav2的小角速度纠偏原样通过
+    in_place_linear_threshold_mps: 0.005
+    # 非零原地旋转命令的最小角速度绝对值，单位弧度每秒
+    min_angular_speed: 0.523598776
+    # 允许的最大角速度绝对值，单位弧度每秒
+    max_angular_speed: 2.094395102
+    # 前方距离小于该值时禁止继续前进，单位米
+    # 与 ESP32 固件一致：超声波距离不大于10cm时禁止前进
+    obstacle_stop_distance_m: 0.10
+    # 超声波保留标准Range调试话题，近障停车由ESP32和car_move共同负责
+    # 超声波有效测距下限，单位米
+    ultrasonic_min_range_m: 0.03
+    # 超声波有效测距上限，单位米
+    ultrasonic_max_range_m: 1.0
+    # 超声波近似视场角，单位弧度
+    ultrasonic_fov_rad: 0.35
+    # 超声波 Range 消息使用的坐标系
+    ultrasonic_frame_id: ultrasonic_link

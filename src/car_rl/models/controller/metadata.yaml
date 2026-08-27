@@ -1,0 +1,17 @@
+schema_version: 2
+role: controller
+model_version: 20260824-split_fusion-seed42
+model_file: car_rl_model.onnx
+onnx_opset: 18
+onnx_sha256: e264a56c3299818602347a622cf4b90bb056f67ba5181553dfac7dfec8c2faaf
+max_inference_ms: 10.0
+input:
+  name: observation
+  shape:
+  - 1
+  - 86
+output:
+  name: action
+  shape:
+  - 1
+  - 2

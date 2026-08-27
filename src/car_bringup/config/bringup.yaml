@@ -1,0 +1,22 @@
+# 启停脚本只检查该 NetworkManager 热点是否已经激活，不在 ROS launch 中修改网络
+hotspot_connection: jetson-car-hotspot
+# ESP32 micro-ROS UDP Agent 监听端口
+agent_port: 8888
+# 雷达 TCP 转串口服务绑定地址
+laser_tcp_host: 192.168.4.1
+# 雷达转接板连接的 TCP 服务端口
+laser_tcp_port: 8889
+# ydlidar 驱动打开的本地伪串口路径
+laser_serial_port: /tmp/tty_laser
+# true 表示必须先确认底盘稳定在线再启动雷达链路
+lidar_wait_for_chassis: true
+# 判定底盘稳定在线所需的连续有效 MCU 状态帧数
+lidar_chassis_ready_count: 3
+# 等待底盘上线的最长秒数，0表示一直等待
+lidar_chassis_wait_timeout_sec: 0.0
+# 等待底盘期间两条状态日志之间的秒数
+lidar_chassis_wait_log_period_sec: 5.0
+# 底盘就绪后额外等待的链路稳定秒数
+lidar_start_after_chassis_sec: 0.5
+# 默认地图 YAML 路径，导航启动时可以由上层覆盖
+map: maps/map.yaml

@@ -1,0 +1,121 @@
+{
+  "final_5000": {
+    "count": 5000,
+    "coverage": {
+      "bilateral_near": 3647,
+      "front_near": 1859,
+      "left_near": 4319,
+      "left_turn": 936,
+      "near_goal": 2816,
+      "right_near": 2283,
+      "right_turn": 1628,
+      "straight": 1789
+    },
+    "exact_unique": 4971
+  },
+  "finished_at": "2026-08-22T19:07:34+0800",
+  "first_4000": {
+    "count": 4000,
+    "coverage": {
+      "bilateral_near": 2968,
+      "front_near": 1534,
+      "left_near": 3455,
+      "left_turn": 766,
+      "near_goal": 2268,
+      "right_near": 1788,
+      "right_turn": 1309,
+      "straight": 1413
+    },
+    "exact_unique": 3976
+  },
+  "outcome": "succeeded",
+  "raw": {
+    "count": 5000,
+    "coverage": {
+      "bilateral_near": 3647,
+      "front_near": 1859,
+      "left_near": 4319,
+      "left_turn": 936,
+      "near_goal": 2816,
+      "right_near": 2283,
+      "right_turn": 1628,
+      "straight": 1789
+    },
+    "exact_unique": 4971,
+    "quantized_unique_1e-3": 4971
+  },
+  "route": {
+    "length_m": 3.1249226971096835,
+    "waypoints": [
+      {
+        "frame_id": "map",
+        "orientation": [
+          0.0,
+          0.0,
+          0.036167516702632324,
+          0.9993457413405857
+        ],
+        "position": [
+          1.0197371130788595,
+          0.4593998338048003,
+          0.0
+        ]
+      },
+      {
+        "frame_id": "map",
+        "orientation": [
+          0.0,
+          0.0,
+          -0.9999284204199338,
+          0.011964699599073259
+        ],
+        "position": [
+          1.0111390151541098,
+          0.09318225587611684,
+          0.0
+        ]
+      },
+      {
+        "frame_id": "map",
+        "orientation": [
+          0.0,
+          0.0,
+          0.766975709806384,
+          0.641676133705309
+        ],
+        "position": [
+          -0.19979547791558994,
+          0.10393005047819948,
+          0.0
+        ]
+      },
+      {
+        "frame_id": "map",
+        "orientation": [
+          0.0,
+          0.0,
+          0.013598045100465792,
+          0.9999075423105107
+        ],
+        "position": [
+          -0.18877882773205346,
+          0.442742267497651,
+          0.0
+        ]
+      }
+    ]
+  },
+  "run_id": "20260822T190153+0800_car01",
+  "schema_version": 1,
+  "selection_algorithm": "coverage_balanced_v1",
+  "started_at": "2026-08-22T19:01:53+0800",
+  "thresholds": {
+    "minimum_left_turn_samples": 200,
+    "minimum_near_goal_samples": 200,
+    "minimum_right_turn_samples": 200,
+    "minimum_straight_samples": 500,
+    "minimum_unique_samples": 100,
+    "target_samples": 5000
+  },
+  "warnings": []
+}

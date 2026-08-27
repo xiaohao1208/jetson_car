@@ -1,0 +1,264 @@
+{
+  "checkpoint": "logs/rsl_rl/car_local_navigation/2026-08-24_17-21-28_campaign_20260824_172123_seed42/model_7950.pt",
+  "navigation_gates_passed": true,
+  "onnxruntime_benchmark_platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "onnxruntime_p99_ms": 0.03994230017269726,
+  "pytorch_onnx_max_abs_error": 4.172325134277344e-07,
+  "real_observation_source_sha256": "87a89147befebff824a6e59db635f9042967282369dbe7310a8bf3e03f95b974",
+  "real_test_observation_count": 4000,
+  "schema_version": 2,
+  "stress_is_informational": true,
+  "suite_metrics": {
+    "core": {
+      "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+      "all_episode_mean_goal_position_error_m": 0.053481912730261684,
+      "all_episode_mean_goal_yaw_error_rad": 0.10149560989695601,
+      "checkpoint_training_diagnostics": {
+        "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+        "curriculum": {
+          "stage": 7,
+          "stage_episode_total": 68878,
+          "termination_rates": {
+            "collision": 0.0020000000949949026,
+            "goal_reached": 0.7480000257492065,
+            "invalid_input": 0.0,
+            "path_deviation": 0.004000000189989805,
+            "stalled": 0.23800000548362732,
+            "time_out": 0.00800000037997961
+          },
+          "window_collision_rate": 0.0020000000949949026,
+          "window_dynamic_collision_rate": 0.0020000000949949026,
+          "window_episodes": 354,
+          "window_static_collision_rate": 0.0,
+          "window_success_rate": 0.7480000257492065
+        },
+        "iteration": 7950,
+        "learning_rate": 1e-05,
+        "noise_std": [
+          0.08001008629798889,
+          0.08022946864366531
+        ],
+        "raw_noise_parameter": [
+          0.6939038634300232,
+          0.7104073166847229
+        ]
+      },
+      "collision_rate": 0.001,
+      "deterministic_action_component_std": [
+        0.7216801643371582,
+        0.17131826281547546
+      ],
+      "deterministic_stop_spin_rate": 0.0,
+      "dynamic_collision_rate": 0.0,
+      "episodes": 1000,
+      "evaluation_suite": "core",
+      "goal_accuracy_episode_count": 967,
+      "invalid_input_rate": 0.0,
+      "mean_action_delta": 0.00791405842931307,
+      "mean_cross_track_error_m": 0.007520694518345717,
+      "mean_episode_time_sec": 36.104533333333336,
+      "mean_goal_position_error_m": 0.0479952185795158,
+      "mean_goal_yaw_error_rad": 0.05046837240907305,
+      "mean_path_length_m": 2.4581380455493926,
+      "minimum_clearance_m": 0.15000000596046448,
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "p95_cross_track_error_m": 0.019587690383195876,
+      "path_deviation_rate": 0.007,
+      "schema_version": 4,
+      "stall_rate": 0.006,
+      "static_collision_rate": 0.001,
+      "success_rate": 0.967,
+      "test_seed_range": [
+        20000,
+        20999
+      ],
+      "timeout_rate": 0.019
+    },
+    "dynamic": {
+      "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+      "all_episode_mean_goal_position_error_m": 0.06386989462003112,
+      "all_episode_mean_goal_yaw_error_rad": 0.12192654670675984,
+      "checkpoint_training_diagnostics": {
+        "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+        "curriculum": {
+          "stage": 7,
+          "stage_episode_total": 68878,
+          "termination_rates": {
+            "collision": 0.0020000000949949026,
+            "goal_reached": 0.7480000257492065,
+            "invalid_input": 0.0,
+            "path_deviation": 0.004000000189989805,
+            "stalled": 0.23800000548362732,
+            "time_out": 0.00800000037997961
+          },
+          "window_collision_rate": 0.0020000000949949026,
+          "window_dynamic_collision_rate": 0.0020000000949949026,
+          "window_episodes": 354,
+          "window_static_collision_rate": 0.0,
+          "window_success_rate": 0.7480000257492065
+        },
+        "iteration": 7950,
+        "learning_rate": 1e-05,
+        "noise_std": [
+          0.08001008629798889,
+          0.08022946864366531
+        ],
+        "raw_noise_parameter": [
+          0.6939038634300232,
+          0.7104073166847229
+        ]
+      },
+      "collision_rate": 0.002,
+      "deterministic_action_component_std": [
+        0.653447687625885,
+        0.11291355639696121
+      ],
+      "deterministic_stop_spin_rate": 0.0,
+      "dynamic_collision_rate": 0.002,
+      "episodes": 500,
+      "evaluation_suite": "dynamic",
+      "goal_accuracy_episode_count": 480,
+      "invalid_input_rate": 0.0,
+      "mean_action_delta": 0.008197809963389237,
+      "mean_cross_track_error_m": 0.007716559238839131,
+      "mean_episode_time_sec": 32.6596,
+      "mean_goal_position_error_m": 0.049286223323239634,
+      "mean_goal_yaw_error_rad": 0.06278244196334223,
+      "mean_path_length_m": 2.2450872375965116,
+      "minimum_clearance_m": 0.1398984044790268,
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "p95_cross_track_error_m": 0.01929254420101642,
+      "path_deviation_rate": 0.004,
+      "schema_version": 4,
+      "stall_rate": 0.018,
+      "static_collision_rate": 0.0,
+      "success_rate": 0.96,
+      "test_seed_range": [
+        22000,
+        22499
+      ],
+      "timeout_rate": 0.016
+    },
+    "stress": {
+      "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+      "all_episode_mean_goal_position_error_m": 0.06511676418595017,
+      "all_episode_mean_goal_yaw_error_rad": 0.10781758205834194,
+      "checkpoint_training_diagnostics": {
+        "actor_sha256": "c55daa5a0c1705c8c5e7041d72f976cfecdb2075d6fa216bcb77acbf1d0811b2",
+        "curriculum": {
+          "stage": 7,
+          "stage_episode_total": 68878,
+          "termination_rates": {
+            "collision": 0.0020000000949949026,
+            "goal_reached": 0.7480000257492065,
+            "invalid_input": 0.0,
+            "path_deviation": 0.004000000189989805,
+            "stalled": 0.23800000548362732,
+            "time_out": 0.00800000037997961
+          },
+          "window_collision_rate": 0.0020000000949949026,
+          "window_dynamic_collision_rate": 0.0020000000949949026,
+          "window_episodes": 354,
+          "window_static_collision_rate": 0.0,
+          "window_success_rate": 0.7480000257492065
+        },
+        "iteration": 7950,
+        "learning_rate": 1e-05,
+        "noise_std": [
+          0.08001008629798889,
+          0.08022946864366531
+        ],
+        "raw_noise_parameter": [
+          0.6939038634300232,
+          0.7104073166847229
+        ]
+      },
+      "collision_rate": 0.01,
+      "deterministic_action_component_std": [
+        0.6227184534072876,
+        0.1033942922949791
+      ],
+      "deterministic_stop_spin_rate": 0.0,
+      "dynamic_collision_rate": 0.01,
+      "episodes": 200,
+      "evaluation_suite": "stress",
+      "goal_accuracy_episode_count": 190,
+      "invalid_input_rate": 0.0,
+      "mean_action_delta": 0.008252659813803341,
+      "mean_cross_track_error_m": 0.008727010624911241,
+      "mean_episode_time_sec": 35.772,
+      "mean_goal_position_error_m": 0.04872640444848098,
+      "mean_goal_yaw_error_rad": 0.04381345229967816,
+      "mean_path_length_m": 2.4404856616258623,
+      "minimum_clearance_m": 0.15280674397945404,
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "p95_cross_track_error_m": 0.02422795630991459,
+      "path_deviation_rate": 0.01,
+      "schema_version": 4,
+      "stall_rate": 0.02,
+      "static_collision_rate": 0.0,
+      "success_rate": 0.95,
+      "test_seed_range": [
+        24000,
+        24199
+      ],
+      "timeout_rate": 0.01
+    }
+  },
+  "suites": {
+    "core": {
+      "checkpoint": "logs/rsl_rl/car_local_navigation/2026-08-24_17-21-28_campaign_20260824_172123_seed42/model_7950.pt",
+      "evaluation": "evaluations/campaign_20260824_172123/core/2026-08-24_17-21-28_campaign_20260824_172123_seed42__model_7950__core/evaluation.json",
+      "evaluation_suite": "core",
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "production_eligible": false,
+      "production_note": "\u4ecd\u9700ONNX\u6570\u503c/\u65f6\u5ef6\u548c\u5b9e\u8f66\u89c2\u6d4b\u95e8\u7981",
+      "schema_version": 1,
+      "selection_rule": [
+        "navigation_gates_passed",
+        "collision_rate",
+        "-success_rate",
+        "p95_cross_track_error_m",
+        "mean_action_delta"
+      ]
+    },
+    "dynamic": {
+      "checkpoint": "logs/rsl_rl/car_local_navigation/2026-08-24_17-21-28_campaign_20260824_172123_seed42/model_7950.pt",
+      "evaluation": "evaluations/campaign_20260824_172123/dynamic/2026-08-24_17-21-28_campaign_20260824_172123_seed42__model_7950__dynamic/evaluation.json",
+      "evaluation_suite": "dynamic",
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "production_eligible": false,
+      "production_note": "\u4ecd\u9700ONNX\u6570\u503c/\u65f6\u5ef6\u548c\u5b9e\u8f66\u89c2\u6d4b\u95e8\u7981",
+      "schema_version": 1,
+      "selection_rule": [
+        "navigation_gates_passed",
+        "collision_rate",
+        "-success_rate",
+        "p95_cross_track_error_m",
+        "mean_action_delta"
+      ]
+    },
+    "stress": {
+      "checkpoint": "logs/rsl_rl/car_local_navigation/2026-08-24_17-21-28_campaign_20260824_172123_seed42/model_7950.pt",
+      "evaluation": "evaluations/campaign_20260824_172123/stress/2026-08-24_17-21-28_campaign_20260824_172123_seed42__model_7950__stress/evaluation.json",
+      "evaluation_suite": "stress",
+      "navigation_gate_failures": [],
+      "navigation_gates_passed": true,
+      "production_eligible": false,
+      "production_note": "\u4ecd\u9700ONNX\u6570\u503c/\u65f6\u5ef6\u548c\u5b9e\u8f66\u89c2\u6d4b\u95e8\u7981",
+      "schema_version": 1,
+      "selection_rule": [
+        "navigation_gates_passed",
+        "collision_rate",
+        "-success_rate",
+        "p95_cross_track_error_m",
+        "mean_action_delta"
+      ]
+    }
+  }
+}

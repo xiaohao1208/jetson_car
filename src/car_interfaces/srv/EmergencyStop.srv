@@ -1,0 +1,13 @@
+# 急停服务接口
+
+# 是否触发急停
+bool stop
+# 急停原因
+string reason
+# 调用来源
+string source
+---
+# 服务是否执行成功
+bool success
+# 返回的提示消息
+string message

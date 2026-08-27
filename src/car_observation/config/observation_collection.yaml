@@ -1,0 +1,40 @@
+car_observation_collect:
+  ros__parameters:
+    vehicle_id: car01
+    output_root: src/car_observation/observations
+    sample_hz: 15.0
+    target_samples: 5000
+    max_raw_samples: 6500
+    max_duration_sec: 900.0
+    countdown_sec: 5.0
+    input_stale_timeout_sec: 0.5
+    continuous_input_failure_sec: 2.0
+    # 近障恢复由car_navigation的共用Nav2行为树完成；观测程序只暂停采样和看门狗
+    nav_goal_retry_count: 1
+    nav_goal_retry_delay_sec: 2.0
+    stop_wheel_speed_mps: 0.01
+    stopped_hold_sec: 0.5
+    minimum_waypoints: 3
+    minimum_adjacent_waypoint_distance_m: 0.30
+    minimum_route_length_m: 2.0
+    minimum_unique_samples: 100
+    minimum_straight_samples: 500
+    minimum_left_turn_samples: 200
+    minimum_right_turn_samples: 200
+    minimum_near_goal_samples: 200
+    warning_front_near_samples: 100
+    warning_left_near_samples: 100
+    warning_right_near_samples: 100
+    warning_bilateral_near_samples: 50
+    near_goal_distance_m: 0.35
+    straight_min_linear_mps: 0.02
+    straight_max_angular_radps: 0.10
+    turn_min_angular_radps: 0.15
+    near_obstacle_distance_m: 0.60
+    bilateral_obstacle_distance_m: 0.80
+    # 0.20m/s 的短时反馈毛刺不立即终止；持续0.20秒或达到0.30m/s才终止
+    max_feedback_wheel_speed_mps: 0.20
+    overspeed_hold_sec: 0.20
+    immediate_overspeed_mps: 0.30
+    max_linear_speed_mps: 0.10
+    max_angular_speed_radps: 1.047197551

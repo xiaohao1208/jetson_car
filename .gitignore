@@ -1,0 +1,66 @@
+# ROS 2 / colcon 构建产物
+/build/
+/install/
+/log/
+
+# 本机编辑器和索引
+/.vscode/
+/.idea/
+*.code-workspace
+compile_commands.json
+.clangd/
+.cache/
+
+# Python 缓存、测试和覆盖率
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# CMake 临时文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# ROS 运行和录包产物
+rosbag2_*/
+*.db3
+*.mcap
+*.pid
+*.log
+/data/
+/cache/
+
+# 实车观测用于复现实车训练过程，随仓库保存
+
+# 地图是现场运行数据，仅保留目录
+/maps/*
+!/maps/.gitkeep
+
+# benchmark 是设备相关测量记录，不进入仓库
+/src/car_rl/benchmark/*
+!/src/car_rl/benchmark/.gitkeep
+# TensorRT 引擎与目标设备运行环境绑定，克隆后在 Jetson 上重新生成
+*.engine
+*.plan
+
+# 操作系统和临时文件
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# 启动脚本
+/scripts/*
+!/scripts/.jetson_car_control.sh
+!/scripts/restart_jetson_car.sh
+!/scripts/start_jetson_car.sh
+!/scripts/stop_jetson_car.sh

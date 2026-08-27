@@ -1,0 +1,14 @@
+{
+  "count": 5000,
+  "observation_contract_version": 1,
+  "production_eligible": true,
+  "raw_csv_sha256": "547947a2ef2f36075be0fcfdad0cbdf40a1a824863753023765bafdfff47dd35",
+  "schema_version": 1,
+  "sha256": "94114958ca8c4c12ee87e738d1ea1143e5366009109f89aa6856d6589db3bc13",
+  "shape": [
+    5000,
+    86
+  ],
+  "source": "real_car",
+  "unique_count": 4971
+}

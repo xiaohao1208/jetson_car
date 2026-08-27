@@ -1,0 +1,15 @@
+schema_version: 1
+source: real_car_raw
+completed: true
+observation_contract_version: 1
+observation_size: 86
+count: 5000
+sample_hz: 15
+csv_sha256: d86fe468362284f6fd934ff5427f3f6d15c65d5af0501db86cc17cb176212ab8
+scan_topic: /scan
+plan_topic: /plan
+odom_topic: /odom
+command_topic: /cmd_vel_nav
+run_id: 20260824T205932+0800_car01
+selection_algorithm: coverage_balanced_v1
+coverage_file: coverage.json

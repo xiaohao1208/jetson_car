@@ -1,0 +1,5 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+# 失败标定保留在本机排查；成功历史和当前 calibration 快照进入仓库
+result/*_failed_*/

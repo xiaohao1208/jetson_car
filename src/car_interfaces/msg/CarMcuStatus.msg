@@ -1,0 +1,32 @@
+# esp32发布的状态接口，jetson端的包订阅该消息接口
+
+# 消息时间戳，esp32和jetson端必须统一
+builtin_interfaces/Time stamp
+# wifi是否连接到jetson热点
+bool wifi_connect_ok
+# micro-ros的agent是否连接
+bool agent_connect_ok
+# imu是否完成初始化且当前读数有效
+bool imu_ok
+# 编码器是否完成初始化且当前轮速计算有效
+bool encoder_ok
+# 电机驱动是否完成初始化
+bool motor_driver_ok
+# esp32是否因为长时间没有收到/cmd_vel_move而停车（/cmd_vel_move是esp32接收唯一移动话题）
+bool cmd_timeout_ok
+# 左轮编码器估算速度，单位m/s
+float32 left_wheel_speed
+# 右轮编码器估算速度，单位m/s
+float32 right_wheel_speed
+# 左轮累计编码器tick值，可以使用相邻消息差值计算位移（不空转）
+int32 left_encoder_ticks
+# 右轮累计编码器tick值，可以使用相邻消息差值计算位移（不空转）
+int32 right_encoder_ticks
+# 超声波本次测距是否有效；无回波可能只是超出量程，不等同硬件故障
+bool ultrasonic_ok
+# 前方是否有障碍物
+bool obstacle_ok
+# 前方障碍物距离，单位m
+float32 obstacle_distance
+# 状态位图：bit7 是本次无回波警告，bit8 是障碍物锁存，其余低位为故障
+uint32 fault_bits

@@ -1,0 +1,7 @@
+{
+  "max_abs_error": 4.172325134277344e-07,
+  "mean_abs_error": 7.119204115113575e-10,
+  "p99_inference_ms": 0.03994230017269726,
+  "real_observation_source_sha256": "87a89147befebff824a6e59db635f9042967282369dbe7310a8bf3e03f95b974",
+  "real_test_observation_count": 4000
+}

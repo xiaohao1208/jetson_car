@@ -1,0 +1,32 @@
+# jetson端内部使用的消息接口
+
+# 消息时间戳，esp32和jetson端必须统一
+builtin_interfaces/Time stamp
+# wifi是否连接到jetson热点
+bool wifi_connect_ok
+# micro-ros的agent是否连接
+bool agent_connect_ok
+# imu是否完成初始化且当前读数有效
+bool imu_ok
+# 编码器是否完成初始化且当前轮速计算有效
+bool encoder_ok
+# 电机驱动是否完成初始化
+bool motor_driver_ok
+# 是否通过急停安全链锁止（真实急停或标定安全锁）
+bool e_stop_ok
+# 最近一次急停设置来源；未触发时为空
+string e_stop_source
+# 最近一次急停设置原因；未触发时为空
+string e_stop_reason
+# mcu状态是否在线
+bool mcu_ok
+# 左右编码器估算的平均轮速，单位m/s
+float32 wheel_speed
+# 超声波测距是否有效
+bool ultrasonic_ok
+# 前方是否有障碍物
+bool obstacle_ok
+# 前方障碍物距离，单位m
+float32 obstacle_distance
+# ESP32 低位状态原样保留；Jetson 使用 bit18真实急停、bit19离线、bit20前方有障碍
+uint32 fault_bits

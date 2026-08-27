@@ -1,0 +1,38 @@
+car_base:
+  ros__parameters:
+    # 连续里程计坐标系名称
+    odom_frame: odom
+    # 参与平面运动的底盘坐标系名称
+    base_frame: base_footprint
+    # true 表示由 car_base 发布 odom 到 base_footprint 的 TF
+    publish_tf: true
+    # 必须与 ESP32 固件中的底盘几何参数一致
+    # 左右驱动轮中心距离，单位米
+    wheel_distance: 0.175
+    # 左编码器每个 tick 对应的轮端行驶距离，单位米
+    left_wheel_per_tick: 0.0001039203
+    # 右编码器每个 tick 对应的轮端行驶距离，单位米
+    right_wheel_per_tick: 0.0001033942
+    # 编码器负责平移，IMU角速度用于修正偏航，IMU失效时自动退回编码器
+    # 偏航增量中 IMU 的权重，范围0到1
+    imu_yaw_weight: 0.7
+    # 超过该秒数未收到 IMU 后只使用编码器计算偏航
+    imu_timeout_sec: 0.25
+    # 小于该绝对值的 IMU Z 轴角速度按零处理，单位弧度每秒
+    imu_gyro_deadband_rps: 0.02
+    # IMU 偏航方向修正，只允许1或-1
+    imu_yaw_sign: 1.0
+    # 接受两帧编码器数据的最小时间差，单位秒
+    min_odom_dt_sec: 0.001
+    # 接受两帧编码器数据的最大时间差，单位秒
+    max_odom_dt_sec: 1.0
+    # 单帧允许的最大编码器 tick 变化量，用于拒绝复位和异常跳变
+    max_tick_delta: 20000
+    # 发布 odometry 时 X 和 Y 位姿协方差
+    pose_xy_variance: 0.02
+    # 发布 odometry 时偏航位姿协方差
+    pose_yaw_variance: 0.04
+    # 发布 odometry 时线速度协方差
+    twist_linear_variance: 0.04
+    # 发布 odometry 时角速度协方差
+    twist_angular_variance: 0.06

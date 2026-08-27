@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>car_observation</name>
+  <version>0.1.0</version>
+  <description>使用经典Nav2自动循环路线并采集真实86维强化学习观测</description>
+  <maintainer email="maintainers@example.invalid">ROS 2 Car Maintainers</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>ament_index_cpp</depend>
+  <depend>action_msgs</depend>
+  <depend>car_interfaces</depend>
+  <depend>car_rl</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>yaml-cpp</depend>
+  <depend>nlohmann-json3-dev</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

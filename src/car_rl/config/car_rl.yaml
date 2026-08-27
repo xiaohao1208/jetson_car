@@ -1,0 +1,22 @@
+# 本文件记录car_rl局部控制器参数模板，实际Nav2运行值位于car_navigation的nav2_params.yaml
+controller:
+  # 空值读取项目 src/car_rl/models/controller
+  bundle_path: ""
+  # 控制器订阅的 LaserScan 话题
+  scan_topic: /scan
+  # 雷达消息允许的最大年龄，单位秒
+  scan_stale_timeout_sec: 0.5
+  # 首帧雷达和首条路径到达前允许等待的时间，单位秒
+  input_ready_timeout_sec: 2.0
+  # 全局路径转换到控制坐标系时允许等待 TF 的时间，单位秒
+  transform_tolerance_sec: 0.5
+  # 连续输入或推理失败达到该次数后终止当前 Nav2 控制任务
+  max_consecutive_failures: 2
+  # 模型动作1映射到的最大前进速度，单位米每秒
+  max_linear_speed: 0.10
+  # 模型动作绝对值1映射到的最大角速度，单位弧度每秒
+  max_angular_speed: 1.047197551
+  # 进入Nav2位置容差后的终点原地对齐比例增益，单位1/s
+  goal_alignment_angular_gain: 1.5
+  # 终点原地旋转允许的最小全向雷达净空，单位米
+  goal_alignment_min_clearance_m: 0.20

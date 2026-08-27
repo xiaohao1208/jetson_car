@@ -1,0 +1,17 @@
+# 自动标定的全局、可恢复状态
+builtin_interfaces/Time stamp
+bool active
+string state
+string phase
+uint32 completed_trials
+uint32 total_trials
+float32 progress
+float32 imu_bias_radps
+float32 imu_noise_radps
+float32 imu_drift_radps
+float32 mcu_frequency_hz
+float32 mcu_max_gap_sec
+uint32 command_timeout_samples
+string run_id
+string result_directory
+string message

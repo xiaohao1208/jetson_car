@@ -1,0 +1,13 @@
+schema_version: 1
+measured_at: '2026-08-24T16:57:21+08:00'
+total_mass_kg: null
+motor_time_constant_sec: 0.4104740873637453
+action_delay_sec: 0.2897796404995461
+left_motor_gain: 0.974791790991673
+right_motor_gain: 0.9676657976927479
+linear_accel_mps2: 0.1619781966928422
+linear_decel_mps2: 0.26588765081458365
+angular_accel_radps2: 1.6866473886954965
+angular_decel_radps2: 3.31320742356208
+wheel_friction_center: null
+source_log_sha256: 80974f4c5daf50ea37774faabed3ef8804ed4ec229db9498cec8194da0855422

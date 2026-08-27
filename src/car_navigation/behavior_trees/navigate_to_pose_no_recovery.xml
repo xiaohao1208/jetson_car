@@ -1,0 +1,28 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <ReactiveFallback name="ObstacleScanOrNavigate">
+      <ExpandingObstacleScan
+        trigger_hold_sec="0.20"
+        clear_hold_sec="0.50"
+        evaluation_timeout_sec="0.75"
+        scan_step_rad="0.3490658504"
+        scan_limit_rad="1.5707963268"
+        retry_delay_sec="1.0"
+        stop_wheel_speed_mps="0.01"
+        stopped_hold_sec="0.50"
+        input_stale_timeout_sec="0.50"
+        minimum_spin_rate_radps="0.25"
+        spin_time_margin_sec="2.0"
+        clearance_tie_m="0.05"/>
+      <PipelineSequence name="NavigateWithReplanning">
+        <RateController hz="1.0">
+          <ComputePathToPose
+            goal="{goal}"
+            path="{path}"
+            planner_id="GridBased"/>
+        </RateController>
+        <FollowPath path="{path}" controller_id="FollowPath"/>
+      </PipelineSequence>
+    </ReactiveFallback>
+  </BehaviorTree>
+</root>

@@ -1,0 +1,34 @@
+{
+  "configuration_sha256": {
+    "assets/asset_manifest.json": "3e25accbede0a47bd48953c61b170720032d9e13983b2611930775f579cc9492",
+    "configs/asset.yaml": "06b8a5807211810e640e4ff2137a49d55ace42c199e5e5a9bf8f3cbecd38a301",
+    "configs/curriculum.yaml": "dae9a0b8bd82e809f6d3aff8ca4f1b65696839ba94ee5821de8de1447598435d",
+    "configs/evaluate.yaml": "6af44e7283d6563a4364c359567a53f02a576116837abb0a22907c1abfbbbee6",
+    "configs/export.yaml": "915c5d1e469e8ecf71cf91fb23954df261b892d3f08c6ad0f744d6d83a845f0a",
+    "configs/play.yaml": "1b96473d117c44bb6b2f6b8ef85583743f9ae99ba6ee81206b8e9efc81066d53",
+    "configs/robot.yaml": "a7e1874c1464fdbe119009644d57a9041432b031b428ec6baa3918cdc1301201",
+    "configs/train.yaml": "57f8dd01554e21f4a909e34b477642a991efca4f081d790473e8c28f1effcebe"
+  },
+  "created_at": "2026-08-24T13:09:22.470150+00:00",
+  "cuda_version": "12.8",
+  "gpu_name": "NVIDIA GeForce RTX 5080",
+  "isaaclab_commit": "37ddf626871758333d6ed89cf64ad702aef127d0",
+  "isaaclab_root": "../IsaacLab",
+  "machine": "x86_64",
+  "nvidia_driver": "580.173.02",
+  "operating_system": "Linux",
+  "packages": {
+    "gymnasium": "1.2.1",
+    "isaaclab": "0.54.2",
+    "isaacsim": "5.1.0.0",
+    "onnx": "1.18.0",
+    "onnxruntime": "1.28.0",
+    "rsl-rl-lib": "3.1.2",
+    "torch": "2.7.0+cu128"
+  },
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "python_version": "3.11.15",
+  "schema_version": 1,
+  "source_fingerprint_sha256": "630307e3e900c9e8fe4656d1ae072c00c1bd0055146b2cb73e88d7181a7f4b81",
+  "training_project_commit": null
+}

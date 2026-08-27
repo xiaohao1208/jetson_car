@@ -1,0 +1,26 @@
+# 路线来自网页当前航点的不可变副本
+geometry_msgs/PoseStamped[] waypoints
+bool route_area_clear
+bool physical_estop_ready
+bool supervised
+bool accepts_maximum_duration
+---
+bool success
+string outcome
+string run_id
+string result_directory
+string observations_csv
+string metadata_yaml
+string coverage_json
+string message
+---
+string state
+string phase
+uint32 collected_samples
+uint32 target_samples
+uint32 unique_samples
+uint32 route_loops
+uint32 current_waypoint
+uint32 total_waypoints
+float32 progress
+string message

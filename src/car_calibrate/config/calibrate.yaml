@@ -1,0 +1,59 @@
+car_calibrate:
+  ros__parameters:
+    vehicle_id: car01
+    # 留空时自动解析为当前工作区 src/car_calibrate/result
+    result_root: ""
+    wheel_radius_m: 0.032
+    wheel_separation_m: 0.175
+    imu_yaw_sign: 1.0
+    command_publish_hz: 20.0
+    countdown_sec: 5.0
+    preflight_timeout_sec: 8.0
+    a0_duration_sec: 10.0
+    a1_duration_sec: 15.0
+    baseline_duration_sec: 2.0
+    motion_duration_sec: 3.0
+    recovery_duration_sec: 3.0
+    # A0/A1 首次受瞬时链路抖动或人为触碰影响时自动保持零速重测一次。
+    a0_max_attempts: 2
+    a1_max_attempts: 2
+    stage_retry_delay_sec: 2.0
+    command_channel_stable_sec: 1.0
+    command_channel_recovery_timeout_sec: 5.0
+    repeats: 5
+    linear_speeds_mps: [0.03, 0.05, 0.08, 0.10]
+    angular_speeds_radps: [0.523598776, 0.785398163, 1.047197551]
+    # 零速阶段容忍偶发 Wi-Fi/micro-ROS 抖动；运动时仍严格快速停车。
+    stationary_mcu_timeout_sec: 0.60
+    motion_mcu_timeout_sec: 0.25
+    # IMU 超过0.25秒只告警并继续；超过0.50秒才安全停车并终止。
+    imu_timeout_sec: 0.25
+    imu_abort_timeout_sec: 0.50
+    max_feedback_speed_mps: 0.20
+    stopped_speed_mps: 0.01
+    stopped_hold_sec: 0.5
+    # 运动响应与停车使用不同阈值；覆盖ESP32的0.1秒爬升和两个控制周期。
+    stall_startup_grace_sec: 0.20
+    stall_response_speed_mps: 0.001
+    stall_timeout_sec: 1.5
+    command_mismatch_timeout_sec: 0.30
+    command_linear_tolerance_mps: 0.005
+    command_angular_tolerance_radps: 0.02
+    max_tick_delta: 20000
+    # A0 实测频率门禁。当前 ESP32 名义 50Hz IMU 经 Wi-Fi/micro-ROS
+    # 稳定到达约 33Hz，因此默认 25Hz；仍高于 15Hz 策略控制频率。
+    min_mcu_frequency_hz: 15.0
+    min_imu_frequency_hz: 25.0
+    min_move_frequency_hz: 12.0
+    min_odom_frequency_hz: 12.0
+    max_mcu_gap_sec: 0.15
+    min_valid_trials_per_level: 4
+    min_metric_samples: 8
+    stationary_wheel_p99_max_mps: 0.015
+    stationary_tick_drift_max: 2
+    stationary_imu_std_max_radps: 0.05
+    # MPU-6050 初始零速输出规格为 ±20deg/s（约 0.349rad/s）；A1 会估计
+    # 并扣除稳定零偏，而不是把正常的可校正零偏误判为噪声。
+    stationary_imu_bias_max_radps: 0.35
+    stationary_imu_residual_p99_max_radps: 0.10
+    stationary_imu_drift_max_radps: 0.02

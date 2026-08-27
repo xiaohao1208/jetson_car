@@ -1,0 +1,26 @@
+car_web:
+  ros__parameters:
+    # 地图 YAML 路径，可以使用工作区相对路径或绝对路径
+    map_file: maps/map.yaml
+    # FastAPI 监听地址，0.0.0.0 表示允许热点内其他设备访问
+    web_host: 0.0.0.0
+    # 网页服务 TCP 端口，范围1到65535
+    web_port: 8000
+    # 自动标定会主动移动小车，默认隐藏；显式开启后网页才允许启动
+    show_calibration_button: false
+    # 自动观测默认隐藏；与标定同时开启时页面仍只显示标定按钮
+    show_observation_collection_button: false
+    # 超过该秒数未收到 MCU 状态后判定底盘离线
+    mcu_online_timeout_sec: 3.0
+    # 超过该秒数未收到雷达或超声波数据后判定传感器离线
+    sensor_timeout_sec: 3.0
+    # 启动定位后重复发送初始位姿的最长秒数
+    initial_pose_retry_timeout_sec: 15.0
+    # 定位栈和导航栈进入可用状态的单次等待秒数
+    navigation_start_timeout_sec: 15.0
+    # 导航栈首次启动失败后的额外重试次数
+    navigation_start_retry_count: 1
+    # 两次导航栈启动尝试之间的等待秒数
+    navigation_retry_delay_sec: 2.0
+    # 左右驱动轮中心距离，单位米，必须与 ESP32 和 car_base 一致
+    wheel_distance: 0.175
