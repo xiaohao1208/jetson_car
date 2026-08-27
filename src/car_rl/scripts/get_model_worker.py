@@ -301,7 +301,7 @@ def select_source(project_root, explicit_archive, inbox):
     repository_root = project_root.parent
     training_archive = (
         repository_root.parent
-        / "car_rl_training"
+        / "car_rl_train"
         / "exports"
         / "car_rl_model"
         / ARCHIVE_NAME

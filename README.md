@@ -269,7 +269,7 @@ RL 模式先检查模型：
 
     ros2 launch car_rl get_model class:=controller
 
-`get_model` 的 `class` 默认值为 `controller`，所以也可以省略该参数。命令默认从与 `ros2_car_gpt` 同级的 `car_rl_training/exports/car_rl_model/` 读取 `car_rl_model.zip` 和 `car_rl_model.zip.sha256`，校验后复制到 `src/car_rl/car_rl_model/controller/`。如果训练目录不在本机，也可以把这两个文件手动放进该目录后执行同一条命令。指定其他位置时必须传入绝对路径：
+`get_model` 的 `class` 默认值为 `controller`，所以也可以省略该参数。命令默认从与 `ros2_car_gpt` 同级的 `car_rl_train/exports/car_rl_model/` 读取 `car_rl_model.zip` 和 `car_rl_model.zip.sha256`，校验后复制到 `src/car_rl/car_rl_model/controller/`。如果训练目录不在本机，也可以把这两个文件手动放进该目录后执行同一条命令。指定其他位置时必须传入绝对路径：
 
     ros2 launch car_rl get_model \
       class:=controller \
